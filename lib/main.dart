@@ -1,3 +1,4 @@
+import 'package:diyetin/pages/SearchPage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +13,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Diyetin Home Page'),
+      home: SearchPage(),
+      //MyHomePage(title: 'Diyetin Home Page')
     );
   }
 }

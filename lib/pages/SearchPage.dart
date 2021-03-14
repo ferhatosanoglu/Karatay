@@ -23,15 +23,18 @@ class _SearchPageState extends State<SearchPage> {
         child: gridDesign(yaziStil),
       ),
       bottomNavigationBar: BottomAppBar(
-        color: Colors.transparent,
+        color: Colors.white,
         elevation: 0,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            neuBottomButton(Icons.settings), //Settings
-            neuBottomButton(Icons.home), //Home
-            neuBottomButton(Icons.list), //Diet List
-          ],
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              neuBottomButton(Icons.settings), //Settings
+              neuBottomButton(Icons.home), //Home
+              neuBottomButton(Icons.list), //Diet List
+            ],
+          ),
         ),
       ),
     );
@@ -68,7 +71,7 @@ class _SearchPageState extends State<SearchPage> {
   NeumorphicButton neuBottomButton(icon) {
     return NeumorphicButton(
       style: NeumorphicStyle(
-        color: Colors.white,
+        color: Colors.green,
         shape: NeumorphicShape.concave,
       ),
       child: NeumorphicIcon(

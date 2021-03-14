@@ -1,3 +1,4 @@
+import 'package:karatay/pages/HomePage.dart';
 import 'package:karatay/pages/SearchPage.dart';
 import 'package:flutter/material.dart';
 
@@ -13,8 +14,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SearchPage(),
+      home: HomePage(),
       //MyHomePage(title: 'karatay Home Page')
     );
   }
 }
+

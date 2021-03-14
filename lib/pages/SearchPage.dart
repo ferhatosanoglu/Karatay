@@ -56,15 +56,46 @@ class _SearchPageState extends State<SearchPage> {
     );
   }
 
-  Neumorphic neuCardDesign(int i, TextStyle yaziStil) {
-    return Neumorphic(
+  Widget neuCardDesign(int i, TextStyle yaziStil) {
+    // return Card(
+    //   shape: RoundedRectangleBorder(
+    //     borderRadius: BorderRadius.circular(16),
+    //   ),
+    //   child: Center(
+    //     child: Text(
+    //       "Balik $i",
+    //       style: yaziStil,
+    //     ),
+    //   ),
+    // );
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.all(
+          const Radius.circular(30),
+        ),
+        border: Border.all(
+          color: const Color.fromRGBO(255, 255, 255, 1),
+        ),
+        color: Colors.white,
+        boxShadow: const <BoxShadow>[
+          BoxShadow(
+            color: Color.fromRGBO(217, 210, 200, 0.51),
+            offset: Offset(6, 6),
+            blurRadius: 16,
+          ),
+          BoxShadow(
+            color: Color.fromRGBO(255, 255, 255, 0.83),
+            offset: Offset(-6, -6),
+            blurRadius: 16,
+          ),
+        ],
+      ),
       child: Center(
         child: Text(
           "Balik $i",
           style: yaziStil,
         ),
       ),
-      style: NeumorphicStyle(depth: 12, color: Colors.white),
     );
   }
 

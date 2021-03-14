@@ -1,4 +1,4 @@
-package com.example.diyetin
+package com.example.karatay
 
 import io.flutter.embedding.android.FlutterActivity
 

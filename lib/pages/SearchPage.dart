@@ -22,21 +22,6 @@ class _SearchPageState extends State<SearchPage> {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
         child: gridDesign(yaziStil),
       ),
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.white,
-        elevation: 0,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              neuBottomButton(Icons.settings), //Settings
-              neuBottomButton(Icons.home), //Home
-              neuBottomButton(Icons.list), //Diet List
-            ],
-          ),
-        ),
-      ),
     );
   }
 

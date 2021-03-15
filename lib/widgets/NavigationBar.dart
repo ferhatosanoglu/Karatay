@@ -19,17 +19,20 @@ class NavigationBar extends StatelessWidget {
   }
 }
 
-NeumorphicButton neuBottomButton(icon) {
-  return NeumorphicButton(
-    style: NeumorphicStyle(
-      color: Colors.white,
-      shape: NeumorphicShape.concave,
+Widget neuBottomButton(icon) {
+  return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: NeumorphicButton(
+      style: NeumorphicStyle(
+        color: Colors.white,
+        shape: NeumorphicShape.concave,
+      ),
+      child: NeumorphicIcon(
+        icon,
+        size: 48,
+        style: NeumorphicStyle(color: Colors.black45),
+      ),
+      onPressed: () {},
     ),
-    child: NeumorphicIcon(
-      icon,
-      size: 48,
-      style: NeumorphicStyle(color: Colors.black45),
-    ),
-    onPressed: () {},
   );
 }

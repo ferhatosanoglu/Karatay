@@ -2,14 +2,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:karatay/pages/HomePage.dart';
 
-class LoginPage extends StatefulWidget {
+class SignUpPage extends StatefulWidget {
   @override
-  _LoginPage createState() => _LoginPage();
+  _SignUpPage createState() => _SignUpPage();
 }
 
-class _LoginPage extends State {
+class _SignUpPage extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,6 +62,38 @@ Widget buildBody(BuildContext context) {
             ),
             buildLoginBtn(context, "Login"),
             builSignUpBtn(context, "Don't have an Account? Sign Up"),
+            SizedBox(
+              height: size.height / 50,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: Text(
+                "-------------------- OR -----------------------",
+                style: TextStyle(
+                  color: Colors.green,
+                ),
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                FaIcon(
+                  FontAwesomeIcons.facebook,
+                  color: Colors.white,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: FaIcon(
+                    FontAwesomeIcons.twitter,
+                    color: Colors.white,
+                  ),
+                ),
+                FaIcon(
+                  FontAwesomeIcons.google,
+                  color: Colors.white,
+                )
+              ],
+            )
           ],
         ),
       ),

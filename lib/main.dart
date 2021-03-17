@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:karatay/pages/HomePage.dart';
-import 'package:karatay/pages/LoginPage.dart';
-import 'package:karatay/widgets/NavigationBar.dart';
-
-import 'pages/SearchPage.dart';
+import 'package:karatay/pages/DietListPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,8 +15,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        body: LoginPage(),
-        bottomNavigationBar: NavigationBar(),
+        body: DietListPage(),
+        //bottomNavigationBar: NavigationBar(),
       ),
       //MyHomePage(title: 'karatay Home Page')
     );

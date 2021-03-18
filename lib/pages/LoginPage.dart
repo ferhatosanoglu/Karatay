@@ -20,7 +20,7 @@ class _LoginPage extends State {
 }
 
 Widget buildBody(BuildContext context) {
-  String message = "Sign In";
+  String message = "Login";
   var size = MediaQuery.of(context).size;
   return Column(
     children: <Widget>[

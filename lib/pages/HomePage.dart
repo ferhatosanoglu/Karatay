@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
 NeumorphicButton neuBottomButton(icon) {
     return NeumorphicButton(
       style: NeumorphicStyle(
-        depth: 5,
+        depth: 0,
         color: Colors.white,
         shape: NeumorphicShape.concave,
       ),
@@ -73,7 +73,7 @@ NeumorphicButton neumorphicButton(TextStyle yaziStil, String yazi){
     style: NeumorphicStyle(
       depth: 5,
       color: Colors.white,
-      shape: NeumorphicShape.concave
+      shape: NeumorphicShape.concave,
     ),
     child: Padding(
       padding: const EdgeInsets.all(20.0),

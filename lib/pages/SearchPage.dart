@@ -10,7 +10,8 @@ class _SearchPageState extends State<SearchPage> {
   var _tfSearchData = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    var yaziStil = Theme.of(context).textTheme.bodyText1.apply(fontSizeDelta: 10);
+    var yaziStil =
+        Theme.of(context).textTheme.bodyText1.apply(fontSizeDelta: 10);
 
     return Scaffold(
       appBar: AppBar(
@@ -21,21 +22,6 @@ class _SearchPageState extends State<SearchPage> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
         child: gridDesign(yaziStil),
-      ),
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.white,
-        elevation: 0,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              neuBottomButton(Icons.settings), //Settings
-              neuBottomButton(Icons.home), //Home
-              neuBottomButton(Icons.list), //Diet List
-            ],
-          ),
-        ),
       ),
     );
   }

@@ -6,8 +6,10 @@ import 'package:karatay/pages/LoginPage.dart';
 import 'package:karatay/pages/SignUpPage.dart';
 import 'package:karatay/pages/ProgramListPage.dart';
 import 'package:karatay/widgets/NavigationBar.dart';
+import 'package:karatay/pages/WelcomePage.dart';
 
 void main() {
+  Paint.enableDithering = true;
   runApp(MyApp());
 }
 
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        body: LoginPage(),
+        body: WelcomePage(),
         //bottomNavigationBar: NavigationBar(),
       ),
       //MyHomePage(title: 'karatay Home Page')

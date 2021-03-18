@@ -48,7 +48,7 @@ Widget neumorphicButton(TextStyle yaziStil, String yazi, size) {
     height: size.height / 5.5,
     child: Neumorphic(
       style: NeumorphicStyle(
-        depth: 5,
+        depth: 0,
         color: Colors.white,
         shape: NeumorphicShape.concave,
       ),

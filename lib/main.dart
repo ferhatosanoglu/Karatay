@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:karatay/pages/ClientInfo.dart';
+import 'package:karatay/pages/HomePage.dart';
+import 'package:karatay/pages/ProgramListPage.dart';
 import 'package:karatay/widgets/NavigationBar.dart';
 
 void main() {

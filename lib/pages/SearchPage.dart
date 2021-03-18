@@ -10,7 +10,8 @@ class _SearchPageState extends State<SearchPage> {
   var _tfSearchData = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    var yaziStil = Theme.of(context).textTheme.bodyText1.apply(fontSizeDelta: 10);
+    var yaziStil =
+        Theme.of(context).textTheme.bodyText1.apply(fontSizeDelta: 10);
 
     return Scaffold(
       appBar: AppBar(

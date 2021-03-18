@@ -10,7 +10,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    var yaziStil = Theme.of(context).textTheme.bodyText1.apply(fontSizeDelta: 10);
+    var yaziStil =
+        Theme.of(context).textTheme.bodyText1.apply(fontSizeDelta: 10);
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(

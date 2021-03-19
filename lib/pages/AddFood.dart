@@ -35,10 +35,10 @@ class _AddFoodState extends State<AddFood> {
                   ),
                   decoration: InputDecoration(
                     border: InputBorder.none,
-                    hintText: "Uploading Picture",
+                    hintText: "Food Name",
                     hintStyle: TextStyle(color: Colors.black26),
                     contentPadding: EdgeInsets.only(top: 14, left: 0),
-                    prefixIcon: Icon(Icons.upload_file, color: Colors.green),
+                    prefixIcon: Icon(Icons.local_dining, color: Colors.green),
                   ),
                 ),
               ),

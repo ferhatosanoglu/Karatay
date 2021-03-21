@@ -54,7 +54,7 @@ class _ClientInfoState extends State<ClientInfo> {
           Container(
             height: 60,
             width: 300,
-            //padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             alignment: Alignment.centerLeft,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(29),

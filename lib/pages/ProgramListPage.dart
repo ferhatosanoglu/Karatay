@@ -32,7 +32,10 @@ class _ProgramListPageState extends State<ProgramListPage> {
                 child: Padding(
               padding: EdgeInsets.symmetric(vertical: size.height / 40),
               child: Text(days[i],
-                  style: Theme.of(context).textTheme.bodyText1.apply(fontSizeDelta: 20)),
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyText1
+                      .apply(fontSizeDelta: 20)),
             )),
             children: [
               subTile(days[i], context),
@@ -50,7 +53,8 @@ Widget subTile(String time, context) {
     child: Container(
       height: 300,
       child: Card(
-        child: Center(child: Text(time, style: Theme.of(context).textTheme.headline2)),
+        child: Center(
+            child: Text(time, style: Theme.of(context).textTheme.headline2)),
       ),
     ),
   );

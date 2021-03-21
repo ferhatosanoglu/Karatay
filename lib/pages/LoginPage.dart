@@ -160,6 +160,7 @@ Widget buildIcon(String message) {
 Widget buildLoginBtn(BuildContext context, String message) {
   return SizedBox(
     width: 315,
+    // ignore: deprecated_member_use
     child: RaisedButton(
       elevation: 5, //hat
       onPressed: () {

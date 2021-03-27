@@ -28,24 +28,19 @@ Widget buildBody(BuildContext context) {
         height: size.height,
         width: size.width,
         decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-              Color(0x665ac18e),
-              Color(0x995ac18e),
-              Color(0xcc5ac18e),
-              Color(0xff5ac18e),
-            ])),
+            gradient:
+                LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [
+          Color(0x665ac18e),
+          Color(0x995ac18e),
+          Color(0xcc5ac18e),
+          Color(0xff5ac18e),
+        ])),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
               message,
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold),
+              style: TextStyle(color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold),
             ),
             SizedBox(
               height: size.height / 15,
@@ -74,8 +69,7 @@ Widget builForgotPassBtn(context, String message) {
     // ignore: deprecated_member_use
     child: FlatButton(
       onPressed: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => HomePage()));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
       },
       padding: EdgeInsets.only(right: 50),
       child: Text(
@@ -163,11 +157,10 @@ Widget buildLoginBtn(BuildContext context, String message) {
     child: RaisedButton(
       elevation: 5, //hat
       onPressed: () {
-        print(message + " Pressed");
+        Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
       },
       padding: EdgeInsets.all(15),
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(25) //kösegenleri yumuşatır
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25) //kösegenleri yumuşatır
           ),
       color: Colors.green,
       child: Text(

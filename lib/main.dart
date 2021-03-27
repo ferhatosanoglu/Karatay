@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:karatay/pages/CalorieCalculationPage.dart';
 import 'package:karatay/pages/ClientInfo.dart';
@@ -8,9 +9,17 @@ import 'package:karatay/pages/ProgramListPage.dart';
 import 'package:karatay/pages/SearchPage.dart';
 import 'package:karatay/pages/SignUpPage.dart';
 import 'package:karatay/pages/WelcomePage.dart';
+import 'package:karatay/pages/home.dart';
 
-void main() {
+List<CameraDescription> cameras;
+Future<Null> main() async {
   Paint.enableDithering = true;
+  WidgetsFlutterBinding.ensureInitialized();
+  try {
+    cameras = await availableCameras();
+  } on CameraException catch (e) {
+    print('Error: $e.code\nError Message: $e.message');
+  }
   runApp(MyApp());
 }
 
@@ -34,6 +43,7 @@ class MyApp extends StatelessWidget {
         '/dietlist': (context) => DietListPage(),
         '/clientinfo': (context) => ClientInfo(),
         '/caloriecalc': (context) => CalorieCalculationPage(),
+        '/camera': (context) => Detect(cameras),
       },
     );
   }

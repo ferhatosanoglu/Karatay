@@ -55,7 +55,7 @@ Widget neumorphicButton(TextStyle yaziStil, String yazi, size, BuildContext cont
           route = '/dietlist';
           break;
         case 'Scan Food':
-          //Set Camera
+          route = '/camera';
           break;
         case 'Calorie':
           route = '/caloriecalc';

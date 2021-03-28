@@ -1,83 +1,168 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:karatay/widgets/NavigationBar.dart';
 
 class CalorieCalculationPage extends StatefulWidget {
   @override
-  _CalorieCalculationPage createState() => _CalorieCalculationPage();
+  _CalorieCalculationPageState createState() => _CalorieCalculationPageState();
 }
 
-class _CalorieCalculationPage extends State<CalorieCalculationPage> {
-  int selected = 1;
-
-  setSelectedRadio(int val) {
-    setState(() {
-      selected = val;
-    });
-  }
-
+class _CalorieCalculationPageState extends State<CalorieCalculationPage> {
+  int radiovalue = 1;
+  int calorie = 0;
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-
-    return Scaffold(
+    return new Scaffold(
+      backgroundColor: Color.fromRGBO(142, 198, 159, 1),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Center(
-            child: Container(
-              height: size.height,
-              width: size.width,
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                    Color(0x665ac18e),
-                    Color(0x995ac18e),
-                    Color(0xcc5ac18e),
-                    Color(0xff5ac18e),
-                  ])),
-              child: Container(
-                color: Colors.white,
-                width: size.width / 3,
-                height: size.height / 3,
-                child: buildColumn(size),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              NeumorphicRadio(
+                onChanged: (int i) {
+                  setState(() {
+                    radiovalue = i;
+                  });
+                },
+                groupValue: radiovalue,
+                padding: EdgeInsets.all(18.0),
+                child: FaIcon(FontAwesomeIcons.marsStrokeV, size: 50, color: Colors.green),
+                value: 1,
+                style: NeumorphicRadioStyle(
+                    unselectedColor: Colors.grey.shade300, selectedColor: Colors.black),
+              ),
+              NeumorphicRadio(
+                onChanged: (int i) {
+                  setState(() {
+                    radiovalue = i;
+                  });
+                },
+                groupValue: radiovalue,
+                padding: EdgeInsets.all(18.0),
+                child: FaIcon(FontAwesomeIcons.venus, size: 50, color: Colors.green),
+                value: 2,
+                style: NeumorphicRadioStyle(
+                    unselectedColor: Colors.grey.shade300, selectedColor: Colors.black),
+              ),
+            ],
+          ),
+          Container(
+            height: 60,
+            width: 300,
+            //padding: const EdgeInsets.all(8.0),
+            alignment: Alignment.centerLeft,
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(29), boxShadow: [
+              BoxShadow(
+                color: Colors.grey.shade300,
+              ),
+            ]),
+            child: TextField(
+              style: TextStyle(
+                color: Colors.black87,
+              ),
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                contentPadding: EdgeInsets.only(top: 14),
+                prefixIcon: Icon(Icons.cake, color: Colors.green),
+                hintText: 'Age',
+                hintStyle: TextStyle(color: Colors.black26),
               ),
             ),
-          )
+          ),
+          Container(
+            height: 60,
+            width: 300,
+            //padding: const EdgeInsets.all(8.0),
+            alignment: Alignment.centerLeft,
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(29), boxShadow: [
+              BoxShadow(
+                color: Colors.grey.shade300,
+              ),
+            ]),
+            child: TextField(
+              style: TextStyle(
+                color: Colors.black87,
+              ),
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                contentPadding: EdgeInsets.only(top: 20),
+                prefixIcon: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: FaIcon(FontAwesomeIcons.rulerVertical, color: Colors.green),
+                ),
+                hintText: 'Size (cm)',
+                hintStyle: TextStyle(color: Colors.black26),
+              ),
+            ),
+          ),
+          Container(
+            height: 60,
+            width: 300,
+            //padding: const EdgeInsets.all(8.0),
+            alignment: Alignment.centerLeft,
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(29), boxShadow: [
+              BoxShadow(
+                color: Colors.grey.shade300,
+              ),
+            ]),
+            child: TextField(
+              keyboardType: TextInputType.visiblePassword,
+              style: TextStyle(
+                color: Colors.black87,
+              ),
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                contentPadding: EdgeInsets.only(top: 20),
+                prefixIcon: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: FaIcon(FontAwesomeIcons.weight, color: Colors.green),
+                ),
+                hintText: 'Kilo (kg)',
+                hintStyle: TextStyle(color: Colors.black26),
+              ),
+            ),
+          ),
+          buildLoginBtn(context, 'Calculate Calorie'),
+          calorie != 0
+              ? Center(
+                  child: Text(
+                    '$calorie',
+                    style:
+                        TextStyle(color: Colors.white, fontSize: 32.0, fontWeight: FontWeight.w300),
+                  ),
+                )
+              : Center(),
         ],
       ),
+      bottomNavigationBar: NavigationBar(),
     );
   }
+}
 
-  Widget buildColumn(size) {
-    return Container(
-      width: size.width,
-      height: size.height,
-      color: Color(0xFF0E3311).withOpacity(0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          RadioListTile(
-            value: 1,
-            groupValue: selected,
-            title: Text("Kadın"),
-            activeColor: Colors.black,
-            onChanged: (val) {
-              print("Kadın $val");
-              setSelectedRadio(val);
-            },
+Widget buildLoginBtn(BuildContext context, String message) {
+  return SizedBox(
+    width: 315,
+    child: RaisedButton(
+      elevation: 5, //hat
+      onPressed: () {
+        //Calculation
+      },
+      padding: EdgeInsets.all(15),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25) //kösegenleri yumuşatır
           ),
-          RadioListTile(
-            value: 2,
-            groupValue: selected,
-            title: Text("Erkek"),
-            activeColor: Colors.black,
-            onChanged: (val) {
-              print("Erkek $val");
-              setSelectedRadio(val);
-            },
-          ),
-        ],
+      color: Colors.green,
+      child: Text(
+        message,
+        style: TextStyle(
+          //color: Color(0xff5ac18e),
+          color: Colors.white,
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+        ),
       ),
-    );
-  }
+    ),
+  );
 }

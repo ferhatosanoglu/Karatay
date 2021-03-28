@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:karatay/widgets/NavigationBar.dart';
+
 extension ColorExtension on String {
   toColor() {
     var hexColor = this.replaceAll("#", "");
@@ -26,17 +28,17 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: Container(
         height: size.height,
-          width: size.width,
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                Color(0x665ac18e),
-                Color(0x995ac18e),
-                Color(0xcc5ac18e),
-                Color(0xff5ac18e),
-              ])),
+        width: size.width,
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+              Color(0x665ac18e),
+              Color(0x995ac18e),
+              Color(0xcc5ac18e),
+              Color(0xff5ac18e),
+            ])),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
@@ -44,42 +46,64 @@ class _HomePageState extends State<HomePage> {
             children: [
               Align(
                 alignment: Alignment.centerLeft,
-                child: neumorphicButton(yaziStil, "Searching", size),
+                child: neumorphicButton(yaziStil, "Scan Food", size, context),
               ),
               Align(
                 alignment: Alignment.topRight,
-                child: neumorphicButton(yaziStil, "Programs", size),
+                child: neumorphicButton(yaziStil, "Programs", size, context),
               ),
               Align(
                 alignment: Alignment.bottomLeft,
-                child: neumorphicButton(yaziStil, "Introduce", size),
+                child: neumorphicButton(yaziStil, "Searching", size, context),
               ),
               Align(
                 alignment: Alignment.topRight,
-                child: neumorphicButton(yaziStil, "Calorie", size),
+                child: neumorphicButton(yaziStil, "Calorie", size, context),
               )
             ],
           ),
         ),
       ),
+      bottomNavigationBar: NavigationBar(),
     );
   }
 }
 
-Widget neumorphicButton(TextStyle yaziStil, String yazi, size) {
-  return Container(
-    width: size.width / 1.75,
-    height: size.height / 5.5,
-    child: Neumorphic(
-      style: NeumorphicStyle(
-        depth: 0,
-        color: '#F7F0FB'.toColor(),
-        shape: NeumorphicShape.concave,
-      ),
-      child: Center(
-        child: Text(
-          yazi,
-          style: yaziStil,
+Widget neumorphicButton(
+    TextStyle yaziStil, String yazi, size, BuildContext context) {
+  return GestureDetector(
+    onTap: () {
+      var route;
+      switch (yazi) {
+        case 'Searching':
+          route = '/search';
+          break;
+        case 'Programs':
+          route = '/dietlist';
+          break;
+        case 'Scan Food':
+          route = '/camera';
+          break;
+        case 'Calorie':
+          route = '/caloriecalc';
+          break;
+      }
+      Navigator.pushNamed(context, route);
+    },
+    child: Container(
+      width: size.width / 1.75,
+      height: size.height / 5.5,
+      child: Neumorphic(
+        style: NeumorphicStyle(
+          depth: 0,
+          color: Color(0xF7F0FB),
+          shape: NeumorphicShape.concave,
+        ),
+        child: Center(
+          child: Text(
+            yazi,
+            style: yaziStil,
+          ),
         ),
       ),
     ),

@@ -203,3 +203,29 @@ class _ClientInfoState extends State<ClientInfo> {
     );
   }
 }
+
+Widget buildLoginBtn(BuildContext context, String message) {
+  return SizedBox(
+    width: 315,
+    child: RaisedButton(
+      elevation: 5, //hat
+      onPressed: () {
+        Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
+      },
+      padding: EdgeInsets.all(15),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(25) //kösegenleri yumuşatır
+          ),
+      color: Colors.green,
+      child: Text(
+        message,
+        style: TextStyle(
+          //color: Color(0xff5ac18e),
+          color: Colors.white,
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    ),
+  );
+}

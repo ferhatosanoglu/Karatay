@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:karatay/widgets/NavigationBar.dart';
 
 extension ColorExtension on String {
   toColor() {
@@ -50,6 +51,7 @@ class _SearchPageState extends State<SearchPage> {
           child: gridDesign(yaziStil),
         ),
       ),
+      bottomNavigationBar: NavigationBar(),
     );
   }
 
@@ -89,7 +91,7 @@ class _SearchPageState extends State<SearchPage> {
         border: Border.all(
           color: const Color.fromRGBO(255, 255, 255, 1),
         ),
-        color: '#F7F0FB'.toColor(),
+        color: Color(0xF7F0FB),
         // boxShadow: const <BoxShadow>[
         //   BoxShadow(
         //     color: Color.fromRGBO(217, 210, 200, 0.51),
@@ -131,7 +133,7 @@ class _SearchPageState extends State<SearchPage> {
 Neumorphic textBox(_tfSearchData, context) {
   return Neumorphic(
     style: NeumorphicStyle(
-      color: '#F7F0FB'.toColor(),
+      color: Color(0xF7F0FB),
       depth: 0,
     ),
     child: TextField(

@@ -22,16 +22,16 @@ class NavigationBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          neuBottomButton(Icons.settings), //Settings
-          neuBottomButton(Icons.home), //Home
-          neuBottomButton(Icons.list), //Diet List
+          neuBottomButton(Icons.settings, 'settings', context), //Settings
+          neuBottomButton(Icons.home, 'home', context), //Home
+          neuBottomButton(Icons.list, 'list', context), //Diet List
         ],
       ),
     );
   }
 }
 
-Widget neuBottomButton(icon) {
+Widget neuBottomButton(icon, data, context) {
   return Padding(
     padding: const EdgeInsets.all(8.0),
     child: NeumorphicButton(
@@ -45,7 +45,21 @@ Widget neuBottomButton(icon) {
         size: 48,
         style: NeumorphicStyle(color:Colors.green ),
       ),
-      onPressed: () {},
+      onPressed: () {
+        var route;
+        switch (data) {
+          case 'settings':
+            route = '/clientinfo';
+            break;
+          case 'home':
+            route = '/home';
+            break;
+          case 'list':
+            route = '/dietlist';
+            break;
+        }
+        Navigator.pushNamed(context, route);
+      },
     ),
   );
 }

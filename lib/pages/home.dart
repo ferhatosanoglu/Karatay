@@ -5,7 +5,6 @@ import 'dart:math' as math;
 
 import 'camera.dart';
 import 'bndbox.dart';
-import 'models.dart';
 
 class Detect extends StatefulWidget {
   final List<CameraDescription> cameras;
@@ -49,13 +48,13 @@ class _DetectState extends State<Detect> {
     return Scaffold(
       body: Stack(
         children: [
-          Camera(
-            widget.cameras,
-            _model,
-            setRecognitions,
-          ),
-          BndBox(_recognitions == null ? [] : _recognitions, math.max(_imageHeight, _imageWidth),
-              math.min(_imageHeight, _imageWidth), screen.height, screen.width, _model),
+          Camera(widget.cameras, setRecognitions),
+          BndBox(
+              _recognitions == null ? [] : _recognitions,
+              math.max(_imageHeight, _imageWidth),
+              math.min(_imageHeight, _imageWidth),
+              screen.height,
+              screen.width),
         ],
       ),
     );

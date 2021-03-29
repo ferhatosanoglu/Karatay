@@ -9,8 +9,27 @@ class CalorieCalculationPage extends StatefulWidget {
 }
 
 class _CalorieCalculationPageState extends State<CalorieCalculationPage> {
+  var tfAge = TextEditingController();
+  var tfHeight = TextEditingController();
+  var tfWeight = TextEditingController();
   int radiovalue = 1;
-  int calorie = 0;
+  double calorie = 0;
+  void calculateCalorie() {
+    if (radiovalue == 1) {
+      calorie = 66 +
+          (13.7 * (double.tryParse(tfWeight.text))) +
+          (5 * (double.tryParse(tfHeight.text))) -
+          (6.8 * (double.tryParse(tfAge.text)));
+    } else if (radiovalue == 2) {
+      calorie = 655 +
+          (9.6 * (double.tryParse(tfWeight.text))) +
+          (1.8 * (double.tryParse(tfHeight.text))) -
+          (4.7 * (double.tryParse(tfAge.text)));
+    } else {
+      calorie = 0;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -60,6 +79,7 @@ class _CalorieCalculationPageState extends State<CalorieCalculationPage> {
               ),
             ]),
             child: TextField(
+              controller: tfAge,
               style: TextStyle(
                 color: Colors.black87,
               ),
@@ -83,6 +103,7 @@ class _CalorieCalculationPageState extends State<CalorieCalculationPage> {
               ),
             ]),
             child: TextField(
+              controller: tfHeight,
               style: TextStyle(
                 color: Colors.black87,
               ),
@@ -93,7 +114,7 @@ class _CalorieCalculationPageState extends State<CalorieCalculationPage> {
                   padding: const EdgeInsets.all(15.0),
                   child: FaIcon(FontAwesomeIcons.rulerVertical, color: Colors.green),
                 ),
-                hintText: 'Size (cm)',
+                hintText: 'Height (cm)',
                 hintStyle: TextStyle(color: Colors.black26),
               ),
             ),
@@ -109,6 +130,7 @@ class _CalorieCalculationPageState extends State<CalorieCalculationPage> {
               ),
             ]),
             child: TextField(
+              controller: tfWeight,
               keyboardType: TextInputType.visiblePassword,
               style: TextStyle(
                 color: Colors.black87,
@@ -120,7 +142,7 @@ class _CalorieCalculationPageState extends State<CalorieCalculationPage> {
                   padding: const EdgeInsets.all(15.0),
                   child: FaIcon(FontAwesomeIcons.weight, color: Colors.green),
                 ),
-                hintText: 'Kilo (kg)',
+                hintText: 'Weight (kg)',
                 hintStyle: TextStyle(color: Colors.black26),
               ),
             ),
@@ -129,7 +151,7 @@ class _CalorieCalculationPageState extends State<CalorieCalculationPage> {
           calorie != 0
               ? Center(
                   child: Text(
-                    '$calorie',
+                    '${calorie.toStringAsFixed(2)}',
                     style:
                         TextStyle(color: Colors.white, fontSize: 32.0, fontWeight: FontWeight.w300),
                   ),
@@ -140,29 +162,31 @@ class _CalorieCalculationPageState extends State<CalorieCalculationPage> {
       bottomNavigationBar: NavigationBar(),
     );
   }
-}
 
-Widget buildLoginBtn(BuildContext context, String message) {
-  return SizedBox(
-    width: 315,
-    child: RaisedButton(
-      elevation: 5, //hat
-      onPressed: () {
-        //Calculation
-      },
-      padding: EdgeInsets.all(15),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25) //kösegenleri yumuşatır
+  Widget buildLoginBtn(BuildContext context, String message) {
+    return SizedBox(
+      width: 315,
+      child: RaisedButton(
+        elevation: 5, //hat
+        onPressed: () {
+          calculateCalorie();
+          setState(() {});
+        },
+        padding: EdgeInsets.all(15),
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(25) //kösegenleri yumuşatır
+                ),
+        color: Colors.green,
+        child: Text(
+          message,
+          style: TextStyle(
+            //color: Color(0xff5ac18e),
+            color: Colors.white,
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
           ),
-      color: Colors.green,
-      child: Text(
-        message,
-        style: TextStyle(
-          //color: Color(0xff5ac18e),
-          color: Colors.white,
-          fontSize: 18,
-          fontWeight: FontWeight.bold,
         ),
       ),
-    ),
-  );
+    );
+  }
 }

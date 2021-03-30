@@ -24,8 +24,7 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    var yaziStil =
-        Theme.of(context).textTheme.bodyText1.apply(fontSizeDelta: 10);
+    var yaziStil = Theme.of(context).textTheme.bodyText1.apply(fontSizeDelta: 10);
 
     return Scaffold(
       appBar: AppBar(
@@ -37,15 +36,13 @@ class _SearchPageState extends State<SearchPage> {
         height: size.height,
         width: size.width,
         decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-              Color(0x665ac18e),
-              Color(0x995ac18e),
-              Color(0xcc5ac18e),
-              Color(0xff5ac18e),
-            ])),
+            gradient:
+                LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [
+          Color(0x665ac18e),
+          Color(0x995ac18e),
+          Color(0xcc5ac18e),
+          Color(0xff5ac18e),
+        ])),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
           child: gridDesign(yaziStil),
@@ -72,17 +69,20 @@ class _SearchPageState extends State<SearchPage> {
   }
 
   Widget neuCardDesign(int i, TextStyle yaziStil) {
-    // return Card(
-    //   shape: RoundedRectangleBorder(
-    //     borderRadius: BorderRadius.circular(16),
-    //   ),
-    //   child: Center(
-    //     child: Text(
-    //       "Balik $i",
-    //       style: yaziStil,
-    //     ),
-    //   ),
-    // );
+    var foodList = [
+      'Banana',
+      'Egg',
+      'Cheese',
+      'Roast Chicken',
+      'Nuts',
+      'Apricot',
+      'Sausages',
+      'Steak',
+      'Fish',
+      'Honey',
+      'Lamb',
+      'Turkey',
+    ];
     return Container(
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(
@@ -92,22 +92,10 @@ class _SearchPageState extends State<SearchPage> {
           color: const Color.fromRGBO(255, 255, 255, 1),
         ),
         color: Color(0xF7F0FB),
-        // boxShadow: const <BoxShadow>[
-        //   BoxShadow(
-        //     color: Color.fromRGBO(217, 210, 200, 0.51),
-        //     offset: Offset(6, 6),
-        //     blurRadius: 16,
-        //   ),
-        //   BoxShadow(
-        //     color: Color.fromRGBO(255, 255, 255, 0.83),
-        //     offset: Offset(-6, -6),
-        //     blurRadius: 16,
-        //   ),
-        // ],
       ),
       child: Center(
         child: Text(
-          "Balik $i",
+          foodList[i],
           style: yaziStil,
         ),
       ),

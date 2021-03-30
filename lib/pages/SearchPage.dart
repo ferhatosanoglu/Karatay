@@ -53,22 +53,6 @@ class _SearchPageState extends State<SearchPage> {
   }
 
   GridView gridDesign(TextStyle yaziStil) {
-    return GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        childAspectRatio: 2 / 2,
-        mainAxisSpacing: 20,
-        crossAxisSpacing: 20,
-      ),
-      itemCount: 12,
-      itemBuilder: (context, i) {
-        return neuCardDesign(i, yaziStil);
-        //CardDesign(i, yaziStil);
-      },
-    );
-  }
-
-  Widget neuCardDesign(int i, TextStyle yaziStil) {
     var foodList = [
       'Banana',
       'Egg',
@@ -83,6 +67,22 @@ class _SearchPageState extends State<SearchPage> {
       'Lamb',
       'Turkey',
     ];
+    return GridView.builder(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        childAspectRatio: 2 / 2,
+        mainAxisSpacing: 20,
+        crossAxisSpacing: 20,
+      ),
+      itemCount: foodList.length,
+      itemBuilder: (context, i) {
+        return neuCardDesign(i, yaziStil, foodList[i]);
+        //CardDesign(i, yaziStil);
+      },
+    );
+  }
+
+  Widget neuCardDesign(int i, TextStyle yaziStil, String food) {
     return Container(
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(
@@ -95,7 +95,7 @@ class _SearchPageState extends State<SearchPage> {
       ),
       child: Center(
         child: Text(
-          foodList[i],
+          food,
           style: yaziStil,
         ),
       ),

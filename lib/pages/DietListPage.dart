@@ -26,15 +26,13 @@ Widget buildBody(BuildContext context) {
           height: size.height * 0.8993902435,
           width: size.width,
           decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                Color(0x665ac18e),
-                Color(0x995ac18e),
-                Color(0xcc5ac18e),
-                Color(0xff5ac18e),
-              ])),
+              gradient:
+                  LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [
+            Color(0x665ac18e),
+            Color(0x995ac18e),
+            Color(0xcc5ac18e),
+            Color(0xff5ac18e),
+          ])),
           child: builListView(context, size),
         ),
       )
@@ -60,10 +58,8 @@ Widget builListView(BuildContext context, var size) {
             color: Colors.white,
           ),
           child: Container(
-            child: Text("Alternative  ${index + 1}",
-                style: Theme.of(context)
-                    .textTheme
-                    .headline4), // Datadan tablolar gelicek
+            child: Text("Diet List  ${index + 1}",
+                style: Theme.of(context).textTheme.headline4), // Datadan tablolar gelicek
             alignment: Alignment.center,
           ),
         ),

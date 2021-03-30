@@ -8,8 +8,7 @@ class BndBox extends StatelessWidget {
   final double screenH;
   final double screenW;
 
-  BndBox(
-      this.results, this.previewH, this.previewW, this.screenH, this.screenW);
+  BndBox(this.results, this.previewH, this.previewW, this.screenH, this.screenW);
 
   @override
   Widget build(BuildContext context) {

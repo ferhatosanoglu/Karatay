@@ -19,18 +19,16 @@ class _ProgramListPageState extends State<ProgramListPage> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Container(
-        height: size.height,
-        width: size.width,
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-              Color(0x665ac18e),
-              Color(0x995ac18e),
-              Color(0xcc5ac18e),
-              Color(0xff5ac18e),
-            ])),
+      height: size.height,
+      width: size.width,
+      decoration: BoxDecoration(
+          gradient:
+              LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [
+        Color(0x665ac18e),
+        Color(0x995ac18e),
+        Color(0xcc5ac18e),
+        Color(0xff5ac18e),
+      ])),
       child: ListView.builder(
         itemCount: days.length,
         itemBuilder: (context, i) {
@@ -44,8 +42,10 @@ class _ProgramListPageState extends State<ProgramListPage> {
               title: Center(
                   child: Padding(
                 padding: EdgeInsets.symmetric(vertical: size.height / 40),
-                child: Text(days[i],
-                    style: Theme.of(context).textTheme.bodyText1.apply(fontSizeDelta: 20),),
+                child: Text(
+                  days[i],
+                  style: Theme.of(context).textTheme.bodyText1.apply(fontSizeDelta: 20),
+                ),
               )),
               children: [
                 subTile(days[i], context),
@@ -64,7 +64,18 @@ Widget subTile(String time, context) {
     child: Container(
       height: 300,
       child: Card(
-        child: Center(child: Text(time, style: Theme.of(context).textTheme.headline2)),
+        child: ListView.builder(
+            itemCount: 6,
+            itemBuilder: (context, i) {
+              return Center(
+                  child: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  'Food ${i + 1}',
+                  style: Theme.of(context).textTheme.headline5,
+                ),
+              ));
+            }),
       ),
     ),
   );

@@ -48,10 +48,12 @@ class _CalorieCalculationPageState extends State<CalorieCalculationPage> {
                 },
                 groupValue: radiovalue,
                 padding: EdgeInsets.all(18.0),
-                child: FaIcon(FontAwesomeIcons.marsStrokeV, size: 50, color: Colors.green),
+                child: FaIcon(FontAwesomeIcons.marsStrokeV,
+                    size: 50, color: Colors.green),
                 value: 1,
                 style: NeumorphicRadioStyle(
-                    unselectedColor: Colors.grey.shade300, selectedColor: Colors.black),
+                    unselectedColor: Colors.grey.shade300,
+                    selectedColor: Colors.black),
               ),
               NeumorphicRadio(
                 onChanged: (int i) {
@@ -61,10 +63,12 @@ class _CalorieCalculationPageState extends State<CalorieCalculationPage> {
                 },
                 groupValue: radiovalue,
                 padding: EdgeInsets.all(18.0),
-                child: FaIcon(FontAwesomeIcons.venus, size: 50, color: Colors.green),
+                child: FaIcon(FontAwesomeIcons.venus,
+                    size: 50, color: Colors.green),
                 value: 2,
                 style: NeumorphicRadioStyle(
-                    unselectedColor: Colors.grey.shade300, selectedColor: Colors.black),
+                    unselectedColor: Colors.grey.shade300,
+                    selectedColor: Colors.black),
               ),
             ],
           ),
@@ -73,11 +77,13 @@ class _CalorieCalculationPageState extends State<CalorieCalculationPage> {
             width: 300,
             //padding: const EdgeInsets.all(8.0),
             alignment: Alignment.centerLeft,
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(29), boxShadow: [
-              BoxShadow(
-                color: Colors.grey.shade300,
-              ),
-            ]),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(29),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.shade300,
+                  ),
+                ]),
             child: TextField(
               controller: tfAge,
               style: TextStyle(
@@ -97,11 +103,13 @@ class _CalorieCalculationPageState extends State<CalorieCalculationPage> {
             width: 300,
             //padding: const EdgeInsets.all(8.0),
             alignment: Alignment.centerLeft,
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(29), boxShadow: [
-              BoxShadow(
-                color: Colors.grey.shade300,
-              ),
-            ]),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(29),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.shade300,
+                  ),
+                ]),
             child: TextField(
               controller: tfHeight,
               style: TextStyle(
@@ -112,7 +120,8 @@ class _CalorieCalculationPageState extends State<CalorieCalculationPage> {
                 contentPadding: EdgeInsets.only(top: 20),
                 prefixIcon: Padding(
                   padding: const EdgeInsets.all(15.0),
-                  child: FaIcon(FontAwesomeIcons.rulerVertical, color: Colors.green),
+                  child: FaIcon(FontAwesomeIcons.rulerVertical,
+                      color: Colors.green),
                 ),
                 hintText: 'Height (cm)',
                 hintStyle: TextStyle(color: Colors.black26),
@@ -124,11 +133,13 @@ class _CalorieCalculationPageState extends State<CalorieCalculationPage> {
             width: 300,
             //padding: const EdgeInsets.all(8.0),
             alignment: Alignment.centerLeft,
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(29), boxShadow: [
-              BoxShadow(
-                color: Colors.grey.shade300,
-              ),
-            ]),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(29),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.shade300,
+                  ),
+                ]),
             child: TextField(
               controller: tfWeight,
               keyboardType: TextInputType.visiblePassword,
@@ -151,9 +162,11 @@ class _CalorieCalculationPageState extends State<CalorieCalculationPage> {
           calorie != 0
               ? Center(
                   child: Text(
-                    '${calorie.toStringAsFixed(2)}',
-                    style:
-                        TextStyle(color: Colors.white, fontSize: 32.0, fontWeight: FontWeight.w300),
+                    '${calorie.toStringAsFixed(2)} J',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 32.0,
+                        fontWeight: FontWeight.w300),
                   ),
                 )
               : Center(),
@@ -173,9 +186,9 @@ class _CalorieCalculationPageState extends State<CalorieCalculationPage> {
           setState(() {});
         },
         padding: EdgeInsets.all(15),
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(25) //kösegenleri yumuşatır
-                ),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(25) //kösegenleri yumuşatır
+            ),
         color: Colors.green,
         child: Text(
           message,

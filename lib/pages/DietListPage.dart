@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:karatay/widgets/NavigationBar.dart';
 
 class DietListPage extends StatefulWidget {
   @override
@@ -11,6 +12,7 @@ class _DietListPage extends State<DietListPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: buildBody(context),
+      bottomNavigationBar: NavigationBar(),
     );
   }
 }
@@ -21,16 +23,18 @@ Widget buildBody(BuildContext context) {
     children: [
       Center(
         child: Container(
-          height: size.height,
+          height: size.height * 0.8993902435,
           width: size.width,
           decoration: BoxDecoration(
-              gradient:
-                  LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [
-            Color(0x665ac18e),
-            Color(0x995ac18e),
-            Color(0xcc5ac18e),
-            Color(0xff5ac18e),
-          ])),
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                Color(0x665ac18e),
+                Color(0x995ac18e),
+                Color(0xcc5ac18e),
+                Color(0xff5ac18e),
+              ])),
           child: builListView(context, size),
         ),
       )
@@ -41,7 +45,7 @@ Widget buildBody(BuildContext context) {
 Widget builListView(BuildContext context, var size) {
   return ListView.separated(
     padding: const EdgeInsets.all(45.0),
-    itemCount: 12,
+    itemCount: 3,
     itemBuilder: (BuildContext context, int index) {
       return GestureDetector(
         onTap: () {
@@ -56,8 +60,10 @@ Widget builListView(BuildContext context, var size) {
             color: Colors.white,
           ),
           child: Container(
-            child: Text("Diet ${index + 1}",
-                style: Theme.of(context).textTheme.headline2), // Datadan tablolar gelicek
+            child: Text("Alternative  ${index + 1}",
+                style: Theme.of(context)
+                    .textTheme
+                    .headline4), // Datadan tablolar gelicek
             alignment: Alignment.center,
           ),
         ),
